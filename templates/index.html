@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedulify</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+         <!-- We will put a form here to submit our data to -->
+        <!-- When we start using flask for the backend this will be entry -->
+        <form action="/submit_form" method="post">
+        <!-- Categories Sections -->
+        <table class="categories-table">
+            <thead>
+                <tr>
+                    <th><input type="text" id="category1" name="category1" value="Category 1"></th>
+                    <th><input type="text" id="category2" name="category2" value="Category 2"></th>
+                    <th><input type="text" id="category3" name="category3" value="Category 3"></th>
+                    <th><input type="text" id="category4" name="category4" value="Category 4"></th>
+                    <th><input type="text" id="category5" name="category5" value="Category 5"></th>
+                    <th><input type="text" id="category6" name="category6" value="Category 6"></th>
+                    <th><input type="text" id="category7" name="category7" value="Category 7"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" id="action1_category1" name="action1_category1"></td>
+                    <td><input type="text" id="action1_category2" name="action1_category2"></td>
+                    <td><input type="text" id="action1_category3" name="action1_category3"></td>
+                    <td><input type="text" id="action1_category4" name="action1_category4"></td>
+                    <td><input type="text" id="action1_category5" name="action1_category5"></td>
+                    <td><input type="text" id="action1_category6" name="action1_category6"></td>
+                    <td><input type="text" id="action1_category7" name="action1_category7"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="action2_category1" name="action2_category1"></td>
+                    <td><input type="text" id="action2_category2" name="action2_category2"></td>
+                    <td><input type="text" id="action2_category3" name="action2_category3"></td>
+                    <td><input type="text" id="action2_category4" name="action2_category4"></td>
+                    <td><input type="text" id="action2_category5" name="action2_category5"></td>
+                    <td><input type="text" id="action2_category6" name="action2_category6"></td>
+                    <td><input type="text" id="action2_category7" name="action2_category7"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="action3_category1" name="action3_category1"></td>
+                    <td><input type="text" id="action3_category2" name="action3_category2"></td>
+                    <td><input type="text" id="action3_category3" name="action3_category3"></td>
+                    <td><input type="text" id="action3_category4" name="action3_category4"></td>
+                    <td><input type="text" id="action3_category5" name="action3_category5"></td>
+                    <td><input type="text" id="action3_category6" name="action3_category6"></td>
+                    <td><input type="text" id="action3_category7" name="action3_category7"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="action4_category1" name="action4_category1"></td>
+                    <td><input type="text" id="action4_category2" name="action4_category2"></td>
+                    <td><input type="text" id="action4_category3" name="action4_category3"></td>
+                    <td><input type="text" id="action4_category4" name="action4_category4"></td>
+                    <td><input type="text" id="action4_category5" name="action4_category5"></td>
+                    <td><input type="text" id="action4_category6" name="action4_category6"></td>
+                    <td><input type="text" id="action4_category7" name="action4_category7"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="action5_category1" name="action5_category1"></td>
+                    <td><input type="text" id="action5_category2" name="action5_category2"></td>
+                    <td><input type="text" id="action5_category3" name="action5_category3"></td>
+                    <td><input type="text" id="action5_category4" name="action5_category4"></td>
+                    <td><input type="text" id="action5_category5" name="action5_category5"></td>
+                    <td><input type="text" id="action5_category6" name="action5_category6"></td>
+                    <td><input type="text" id="action5_category7" name="action5_category7"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="action6_category1" name="action6_category1"></td>
+                    <td><input type="text" id="action6_category2" name="action6_category2"></td>
+                    <td><input type="text" id="action6_category3" name="action6_category3"></td>
+                    <td><input type="text" id="action6_category4" name="action6_category4"></td>
+                    <td><input type="text" id="action6_category5" name="action6_category5"></td>
+                    <td><input type="text" id="action6_category6" name="action6_category6"></td>
+                    <td><input type="text" id="action6_category7" name="action6_category7"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="action7_category1" name="action7_category1"></td>
+                    <td><input type="text" id="action7_category2" name="action7_category2"></td>
+                    <td><input type="text" id="action7_category3" name="action7_category3"></td>
+                    <td><input type="text" id="action7_category4" name="action7_category4"></td>
+                    <td><input type="text" id="action7_category5" name="action7_category5"></td>
+                    <td><input type="text" id="action7_category6" name="action7_category6"></td>
+                    <td><input type="text" id="action7_category7" name="action7_category7"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="action8_category1" name="action8_category1"></td>
+                    <td><input type="text" id="action8_category2" name="action8_category2"></td>
+                    <td><input type="text" id="action8_category3" name="action8_category3"></td>
+                    <td><input type="text" id="action8_category4" name="action8_category4"></td>
+                    <td><input type="text" id="action8_category5" name="action8_category5"></td>
+                    <td><input type="text" id="action8_category6" name="action8_category6"></td>
+                    <td><input type="text" id="action8_category7" name="action8_category7"></td>
+                </tr>
+                
+                <!-- Repeat this code for more rows -->
+            </tbody>
+        </table>
+
+                <!-- Days of the week section for the task in categories  -->
+        <table class="days-table">
+            <thead>
+                <tr>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th>Saturday</th>
+                    <th>Sunday</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" id="monday_task1" name="monday_task1"></td>
+                    <td><input type="text" id="tuesday_task1" name="tuesday_task1"></td>
+                    <td><input type="text" id="wednesday_task1" name="wednesday_task1"></td>
+                    <td><input type="text" id="thursday_task1" name="thursday_task1"></td>
+                    <td><input type="text" id="friday_task1" name="friday_task1"></td>
+                    <td><input type="text" id="saturday_task1" name="saturday_task1"></td>
+                    <td><input type="text" id="sunday_task1" name="sunday_task1"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="monday_task2" name="monday_task2"></td>
+                    <td><input type="text" id="tuesday_task2" name="tuesday_task2"></td>
+                    <td><input type="text" id="wednesday_task2" name="wednesday_task2"></td>
+                    <td><input type="text" id="thursday_task2" name="thursday_task2"></td>
+                    <td><input type="text" id="friday_task2" name="friday_task2"></td>
+                    <td><input type="text" id="saturday_task2" name="saturday_task2"></td>
+                    <td><input type="text" id="sunday_task2" name="sunday_task2"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="monday_task3" name="monday_task3"></td>
+                    <td><input type="text" id="tuesday_task3" name="tuesday_task3"></td>
+                    <td><input type="text" id="wednesday_task3" name="wednesday_task3"></td>
+                    <td><input type="text" id="thursday_task3" name="thursday_task3"></td>
+                    <td><input type="text" id="friday_task3" name="friday_task3"></td>
+                    <td><input type="text" id="saturday_task3" name="saturday_task3"></td>
+                    <td><input type="text" id="sunday_task3" name="sunday_task3"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="monday_task4" name="monday_task4"></td>
+                    <td><input type="text" id="tuesday_task4" name="tuesday_task4"></td>
+                    <td><input type="text" id="wednesday_task4" name="wednesday_task4"></td>
+                    <td><input type="text" id="thursday_task4" name="thursday_task4"></td>
+                    <td><input type="text" id="friday_task4" name="friday_task4"></td>
+                    <td><input type="text" id="saturday_task4" name="saturday_task4"></td>
+                    <td><input type="text" id="sunday_task4" name="sunday_task4"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="monday_task5" name="monday_task5"></td>
+                    <td><input type="text" id="tuesday_task5" name="tuesday_task5"></td>
+                    <td><input type="text" id="wednesday_task5" name="wednesday_task5"></td>
+                    <td><input type="text" id="thursday_task5" name="thursday_task5"></td>
+                    <td><input type="text" id="friday_task5" name="friday_task5"></td>
+                    <td><input type="text" id="saturday_task5" name="saturday_task5"></td>
+                    <td><input type="text" id="sunday_task5" name="sunday_task5"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="monday_task6" name="monday_task6"></td>
+                    <td><input type="text" id="tuesday_task6" name="tuesday_task6"></td>
+                    <td><input type="text" id="wednesday_task6" name="wednesday_task6"></td>
+                    <td><input type="text" id="thursday_task6" name="thursday_task6"></td>
+                    <td><input type="text" id="friday_task6" name="friday_task6"></td>
+                    <td><input type="text" id="saturday_task6" name="saturday_task6"></td>
+                    <td><input type="text" id="sunday_task6" name="sunday_task6"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="monday_task7" name="monday_task7"></td>
+                    <td><input type="text" id="tuesday_task7" name="tuesday_task7"></td>
+                    <td><input type="text" id="wednesday_task7" name="wednesday_task7"></td>
+                    <td><input type="text" id="thursday_task7" name="thursday_task7"></td>
+                    <td><input type="text" id="friday_task7" name="friday_task7"></td>
+                    <td><input type="text" id="saturday_task7" name="saturday_task7"></td>
+                    <td><input type="text" id="sunday_task7" name="sunday_task7"></td>
+                </tr>
+                
+                <!-- Repeat this code to add more rows -->
+            </tbody>
+        </table>
+        
+
+        <!-- Daily Schedule Section-->
+        <table class="time-schedule">
+            <thead>
+                <tr>
+                    <th>Daily Schedules</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Time slots with inputs from 7am to 9pm -->
+                <tr>
+                    <td>7 AM</td>
+                    <td><input type="text" id="schedule_7am_monday" name="schedule_7am_monday"></td>
+                    <td><input type="text" id="schedule_7am_tuesday" name="schedule_7am_tuesday"></td>
+                    <td><input type="text" id="schedule_7am_wednesday" name="schedule_7am_wednesday"></td>
+                    <td><input type="text" id="schedule_7am_thursday" name="schedule_7am_thursday"></td>
+                    <td><input type="text" id="schedule_7am_friday" name="schedule_7am_friday"></td>
+                    <td><input type="text" id="schedule_7am_saturday" name="schedule_7am_saturday"></td>
+                    <td><input type="text" id="schedule_7am_sunday" name="schedule_7am_sunday"></td>
+                </tr>
+                <tr>
+                    <td>8 AM</td>
+                    <td><input type="text" id="schedule_8am_monday" name="schedule_8am_monday"></td>
+                    <td><input type="text" id="schedule_8am_tuesday" name="schedule_8am_tuesday"></td>
+                    <td><input type="text" id="schedule_8am_wednesday" name="schedule_8am_wednesday"></td>
+                    <td><input type="text" id="schedule_8am_thursday" name="schedule_8am_thursday"></td>
+                    <td><input type="text" id="schedule_8am_friday" name="schedule_8am_friday"></td>
+                    <td><input type="text" id="schedule_8am_saturday" name="schedule_8am_saturday"></td>
+                    <td><input type="text" id="schedule_8am_sunday" name="schedule_8am_sunday"></td>
+                </tr>
+                <tr>
+                    <td>9 AM</td>
+                    <td><input type="text" id="schedule_9am_monday" name="schedule_9am_monday"></td>
+                    <td><input type="text" id="schedule_9am_tuesday" name="schedule_9am_tuesday"></td>
+                    <td><input type="text" id="schedule_9am_wednesday" name="schedule_9am_wednesday"></td>
+                    <td><input type="text" id="schedule_9am_thursday" name="schedule_9am_thursday"></td>
+                    <td><input type="text" id="schedule_9am_friday" name="schedule_9am_friday"></td>
+                    <td><input type="text" id="schedule_9am_saturday" name="schedule_9am_saturday"></td>
+                    <td><input type="text" id="schedule_9am_sunday" name="schedule_9am_sunday"></td>
+                </tr>
+                <tr>
+                    <td>10 AM</td>
+                    <td><input type="text" id="schedule_10am_monday" name="schedule_10am_monday"></td>
+                    <td><input type="text" id="schedule_10am_tuesday" name="schedule_10am_tuesday"></td>
+                    <td><input type="text" id="schedule_10am_wednesday" name="schedule_10am_wednesday"></td>
+                    <td><input type="text" id="schedule_10am_thursday" name="schedule_10am_thursday"></td>
+                    <td><input type="text" id="schedule_10am_friday" name="schedule_10am_friday"></td>
+                    <td><input type="text" id="schedule_10am_saturday" name="schedule_10am_saturday"></td>
+                    <td><input type="text" id="schedule_10am_sunday" name="schedule_10am_sunday"></td>
+                </tr>
+                <tr>
+                    <td>11 AM</td>
+                    <td><input type="text" id="schedule_11am_monday" name="schedule_11am_monday"></td>
+                    <td><input type="text" id="schedule_11am_tuesday" name="schedule_11am_tuesday"></td>
+                    <td><input type="text" id="schedule_11am_wednesday" name="schedule_11am_wednesday"></td>
+                    <td><input type="text" id="schedule_11am_thursday" name="schedule_11am_thursday"></td>
+                    <td><input type="text" id="schedule_11am_friday" name="schedule_11am_friday"></td>
+                    <td><input type="text" id="schedule_11am_saturday" name="schedule_11am_saturday"></td>
+                    <td><input type="text" id="schedule_11am_sunday" name="schedule_11am_sunday"></td>
+                </tr>
+                <tr>
+                    <td>12 PM</td>
+                    <td><input type="text" id="schedule_12pm_monday" name="schedule_12pm_monday"></td>
+                    <td><input type="text" id="schedule_12pm_tuesday" name="schedule_12pm_tuesday"></td>
+                    <td><input type="text" id="schedule_12pm_wednesday" name="schedule_12pm_wednesday"></td>
+                    <td><input type="text" id="schedule_12pm_thursday" name="schedule_12pm_thursday"></td>
+                    <td><input type="text" id="schedule_12pm_friday" name="schedule_12pm_friday"></td>
+                    <td><input type="text" id="schedule_12pm_saturday" name="schedule_12pm_saturday"></td>
+                    <td><input type="text" id="schedule_12pm_sunday" name="schedule_12pm_sunday"></td>
+                </tr>
+                <tr>
+                    <td>1 PM</td>
+                    <td><input type="text" id="schedule_1pm_monday" name="schedule_1pm_monday"></td>
+                    <td><input type="text" id="schedule_1pm_tuesday" name="schedule_1pm_tuesday"></td>
+                    <td><input type="text" id="schedule_1pm_wednesday" name="schedule_1pm_wednesday"></td>
+                    <td><input type="text" id="schedule_1pm_thursday" name="schedule_1pm_thursday"></td>
+                    <td><input type="text" id="schedule_1pm_friday" name="schedule_1pm_friday"></td>
+                    <td><input type="text" id="schedule_1pm_saturday" name="schedule_1pm_saturday"></td>
+                    <td><input type="text" id="schedule_1pm_sunday" name="schedule_1pm_sunday"></td>
+                </tr>
+                <tr>
+                    <td>2 PM</td>
+                    <td><input type="text" id="schedule_2pm_monday" name="schedule_2pm_monday"></td>
+                    <td><input type="text" id="schedule_2pm_tuesday" name="schedule_2pm_tuesday"></td>
+                    <td><input type="text" id="schedule_2pm_wednesday" name="schedule_2pm_wednesday"></td>
+                    <td><input type="text" id="schedule_2pm_thursday" name="schedule_2pm_thursday"></td>
+                    <td><input type="text" id="schedule_2pm_friday" name="schedule_2pm_friday"></td>
+                    <td><input type="text" id="schedule_2pm_saturday" name="schedule_2pm_saturday"></td>
+                    <td><input type="text" id="schedule_2pm_sunday" name="schedule_2pm_sunday"></td>
+                </tr>
+                <tr>
+                    <td>3 PM</td>
+                    <td><input type="text" id="schedule_3pm_monday" name="schedule_3pm_monday"></td>
+                    <td><input type="text" id="schedule_3pm_tuesday" name="schedule_3pm_tuesday"></td>
+                    <td><input type="text" id="schedule_3pm_wednesday" name="schedule_3pm_wednesday"></td>
+                    <td><input type="text" id="schedule_3pm_thursday" name="schedule_3pm_thursday"></td>
+                    <td><input type="text" id="schedule_3pm_friday" name="schedule_3pm_friday"></td>
+                    <td><input type="text" id="schedule_3pm_saturday" name="schedule_3pm_saturday"></td>
+                    <td><input type="text" id="schedule_3pm_sunday" name="schedule_3pm_sunday"></td>
+                </tr>
+                <tr>
+                    <td>4 PM</td>
+                    <td><input type="text" id="schedule_4pm_monday" name="schedule_4pm_monday"></td>
+                    <td><input type="text" id="schedule_4pm_tuesday" name="schedule_4pm_tuesday"></td>
+                    <td><input type="text" id="schedule_4pm_wednesday" name="schedule_4pm_wednesday"></td>
+                    <td><input type="text" id="schedule_4pm_thursday" name="schedule_4pm_thursday"></td>
+                    <td><input type="text" id="schedule_4pm_friday" name="schedule_4pm_friday"></td>
+                    <td><input type="text" id="schedule_4pm_saturday" name="schedule_4pm_saturday"></td>
+                    <td><input type="text" id="schedule_4pm_sunday" name="schedule_4pm_sunday"></td>
+                </tr>
+                <tr>
+                    <td>5 PM</td>
+                    <td><input type="text" id="schedule_5pm_monday" name="schedule_5pm_monday"></td>
+                    <td><input type="text" id="schedule_5pm_tuesday" name="schedule_5pm_tuesday"></td>
+                    <td><input type="text" id="schedule_5pm_wednesday" name="schedule_5pm_wednesday"></td>
+                    <td><input type="text" id="schedule_5pm_thursday" name="schedule_5pm_thursday"></td>
+                    <td><input type="text" id="schedule_5pm_friday" name="schedule_5pm_friday"></td>
+                    <td><input type="text" id="schedule_5pm_saturday" name="schedule_5pm_saturday"></td>
+                    <td><input type="text" id="schedule_5pm_sunday" name="schedule_5pm_sunday"></td>
+                </tr>
+                <tr>
+                    <td>6 PM</td>
+                    <td><input type="text" id="schedule_6pm_monday" name="schedule_6pm_monday"></td>
+                    <td><input type="text" id="schedule_6pm_tuesday" name="schedule_6pm_tuesday"></td>
+                    <td><input type="text" id="schedule_6pm_wednesday" name="schedule_6pm_wednesday"></td>
+                    <td><input type="text" id="schedule_6pm_thursday" name="schedule_6pm_thursday"></td>
+                    <td><input type="text" id="schedule_6pm_friday" name="schedule_6pm_friday"></td>
+                    <td><input type="text" id="schedule_6pm_saturday" name="schedule_6pm_saturday"></td>
+                    <td><input type="text" id="schedule_6pm_sunday" name="schedule_6pm_sunday"></td>
+                </tr>
+                <tr>
+                    <td>7 PM</td>
+                    <td><input type="text" id="schedule_7pm_monday" name="schedule_7pm_monday"></td>
+                    <td><input type="text" id="schedule_7pm_tuesday" name="schedule_7pm_tuesday"></td>
+                    <td><input type="text" id="schedule_7pm_wednesday" name="schedule_7pm_wednesday"></td>
+                    <td><input type="text" id="schedule_7pm_thursday" name="schedule_7pm_thursday"></td>
+                    <td><input type="text" id="schedule_7pm_friday" name="schedule_7pm_friday"></td>
+                    <td><input type="text" id="schedule_7pm_saturday" name="schedule_7pm_saturday"></td>
+                    <td><input type="text" id="schedule_7pm_sunday" name="schedule_7pm_sunday"></td>
+                </tr>
+                <tr>
+                    <td>8 PM</td>
+                    <td><input type="text" id="schedule_8pm_monday" name="schedule_8pm_monday"></td>
+                    <td><input type="text" id="schedule_8pm_tuesday" name="schedule_8pm_tuesday"></td>
+                    <td><input type="text" id="schedule_8pm_wednesday" name="schedule_8pm_wednesday"></td>
+                    <td><input type="text" id="schedule_8pm_thursday" name="schedule_8pm_thursday"></td>
+                    <td><input type="text" id="schedule_8pm_friday" name="schedule_8pm_friday"></td>
+                    <td><input type="text" id="schedule_8pm_saturday" name="schedule_8pm_saturday"></td>
+                    <td><input type="text" id="schedule_8pm_sunday" name="schedule_8pm_sunday"></td>
+                </tr>
+                <tr>
+                    <td>9 PM</td>
+                    <td><input type="text" id="schedule_9pm_monday" name="schedule_9pm_monday"></td>
+                    <td><input type="text" id="schedule_9pm_tuesday" name="schedule_9pm_tuesday"></td>
+                    <td><input type="text" id="schedule_9pm_wednesday" name="schedule_9pm_wednesday"></td>
+                    <td><input type="text" id="schedule_9pm_thursday" name="schedule_9pm_thursday"></td>
+                    <td><input type="text" id="schedule_9pm_friday" name="schedule_9pm_friday"></td>
+                    <td><input type="text" id="schedule_9pm_saturday" name="schedule_9pm_saturday"></td>
+                    <td><input type="text" id="schedule_9pm_sunday" name="schedule_9pm_sunday"></td>
+                </tr>
+
+            
+
+                <!-- Repeat this if more rows are needed. -->
+            </tbody>
+        </table>
+
+        <!--This is where I am adding the previous and next buttons. -->
+
+        <footer class="footer">
+            <a href="#" class="button">‹ Previous</a>
+            <a href="#" class="button">Next ›</a>
+        </footer>
+    
+
+    </div>
+</body>
+</html>
