@@ -13,6 +13,8 @@ REGION_NAME = config.REGION_NAME
 CLIENT_ID = config.CLIENT_ID
 USER_PASSWORD_AUTH = config.USER_PASSWORD_AUTH
 
+# Create an RDS client
+#rds_client = boto3.client('rds')
 
 
 @app.route('/')
