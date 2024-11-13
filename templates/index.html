@@ -358,6 +358,17 @@
             <a href="#" class="button">Next ›</a>
         </footer>
     
+        <body>
+            <h1>Welcome, {{ username }}</h1>
+            
+            <!-- Logout Button -->
+            <form action="{{ url_for('logout') }}" method="post" style="display: inline;">
+                <button type="submit">Logout</button>
+            </form>
+        
+            <!-- Optional navigation or content here -->
+        </body>
+
 
     </div>
 </body>
