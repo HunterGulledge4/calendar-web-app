@@ -32,11 +32,11 @@ with app.app_context():
     db.create_all()  # Create tables if they don't exist
 
 
-@app.route('/')
+@app.route('/index')
 def index():
    return render_template('index.html')
 
-@app.route('/signup', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
         username = request.form['username']
@@ -70,10 +70,13 @@ def login():
         if user and check_password_hash(user.password, password):
             # Successful login - set session or other authentication mechanism
             flash('Logged in successfully!', 'success')
+            flash('Logged in successfully!', 'success')
             return redirect(url_for('index'))  # Redirect to protected page
         else:
             flash('Invalid username or password', 'danger')
     return render_template('login.html')
+
+
 
 if __name__ == '__main__':
     app.debug = True
