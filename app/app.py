@@ -36,6 +36,7 @@ with app.app_context():
 def index():
    return render_template('index.html')
 
+
 @app.route('/', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
@@ -76,6 +77,10 @@ def login():
             flash('Invalid username or password', 'danger')
     return render_template('login.html')
 
+
+@app.route('/logout')
+def logout():
+   return render_template('logout.html')
 
 
 if __name__ == '__main__':
