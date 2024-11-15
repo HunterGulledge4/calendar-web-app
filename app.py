@@ -164,19 +164,18 @@ def update_categories_and_tasks():
     categories = Category.query.filter_by(user_id=user_id).all()
     tasks_by_category = {category.category_id: Task.query.filter_by(category_id=category.category_id).all() for category in categories}
 
-    # Update or add categories (max 7 categories)
+    # Update or add categories (always 7 categories)
     for i in range(1, 8):
         category_name = request.form.get(f'category{i}')
 
-        if category_name:
-            if i <= len(categories):
-                # Update existing category
-                categories[i - 1].category_name = category_name
-            else:
-                # Add new category if less than 7. The max for the categories is key because otherwise it just displays any in the DB for that user.
-                if len(categories) < 7:
-                    new_category = Category(user_id=user_id, category_name=category_name)
-                    db.session.add(new_category)
+        # Update existing category
+        if category_name and i <= len(categories):
+            categories[i - 1].category_name = category_name
+
+        # Add new category if less than 7. The max for the categories is key because otherwise it just displays any in the DB for that user.
+        if len(categories) < 7:
+            new_category = Category(user_id=user_id, category_name=category_name)
+            db.session.add(new_category)
 
     # Update or add tasks for each category
     for category in categories:
