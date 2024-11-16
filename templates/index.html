@@ -2,124 +2,193 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schedulify</title>
-    <!-- Linked to CSS file for styling -->
+    <title>Schedulify - Your Weekly Planner</title>
+    <!-- Link to CSS file for styling -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
-        <!-- Form to submit categorie and task data into the Flask backend -->
-        <!-- Categories Form: Allows user to create or update categories and tasks -->
-        <form action="{{ url_for('update_categories_and_tasks') }}" method="post">
-            <table class="categories-table">
-                <thead>
-                    <tr>
-                        <!-- Dynamically generate category input fields based on categories pulled from the backend (should default if there is a new user)-->
-                        {% for category in categories %}
-                            <th>
-                                <input type="text" id="category{{ loop.index }}" name="category{{ loop.index }}" value="{{ category.category_name }}">
-                            </th>
-                        {% endfor %}
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Generate some input fields for tasks under each category, currently we allow up to 8 tasks per category.-->
-                     <!--This was being weird. When a new user was created no task "slots" popped up so this was something that worked.-->
-                    {% for i in range(1, 9) %}
-                        <tr>
-                            {% for category in categories %}
-                                <td>
-                                    {% set tasks = tasks_by_category.get(category.category_id, []) %}
-                                    <input type="text" id="action{{ i }}_category{{ loop.index }}" name="action{{ i }}_category{{ loop.index }}" value="{{ tasks[i-1].task_name if i <= tasks|length else '' }}">
-                                </td>
-                            {% endfor %}
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            <button type="submit">Save Categories and Actions</button>
-        </form>
+        <!-- Header Section -->
+        <header>
+            <!-- Welcome message -->
+            <div class="welcome-message">
+                <h1>Welcome to your Schedulify, {{ username }}!</h1>
+            </div>
 
-        <!-- Form to assign tasks to specific days of the week -->
-        <!-- Assign Tasks Form is what allows users to assign tasks to specific days of the week -->
-        <form action="{{ url_for('assign_task_to_day') }}" method="post">
-            <h2>Assign Tasks to Days</h2>
-            <table class="days-table">
-                <thead>
-                    <tr>
-                        <!-- Display days of the week as headers for the table -->
-                        {% for day in days_of_week %}
-                            <th>{{ day }}</th>
-                        {% endfor %}
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Generate input fields for each day of the week, up to 7 tasks per day -->
-                     <!-- The 8 task compared the 7 here I just noticed typing these notes, something we could change -->
-                    {% for i in range(1, 8) %}
-                        <tr>
-                            {% for day in days_of_week %}
-                                <td>
-                                    <input type="text" id="{{ day.lower() }}_task{{ i }}" name="{{ day.lower() }}_task{{ i }}" 
-                                        value="{{ tasks_by_day[day][i-1] if i <= tasks_by_day[day]|length else '' }}">
-                                </td>
-                            {% endfor %}
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            <button type="submit">Assign Tasks to Days</button>
-        </form>
+            <!-- Header Controls (Theme Toggle and Logout Button) -->
+            <div class="header-controls">
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle">Switch to Dark Mode</button>
 
-        <!-- Form to assign daily schedule time slots -->
-        <!-- User has the ability to assign specific tasks to time slots for each day of the week -->
-        <form action="{{ url_for('schedule_task_time_slot') }}" method="post">
-            <h2>Daily Schedules</h2>
-            <table class="time-schedule">
-                <thead>
-                    <tr>
-                        <th>Time Slot</th>
-                        <!-- Display days of the week as headers for the schedule table -->
-                        {% for day in days_of_week %}
-                            <th>{{ day }}</th>
-                        {% endfor %}
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Generate input fields for each time slot, allowing users to assign tasks to a specfic time for each day -->
-                    {% for time_slot in time_slots %}
-                        <tr>
-                            <td>{{ time_slot }}</td>
-                            {% for day in days_of_week %}
-                                <td>
-                                    <input type="text" id="schedule_{{ time_slot|replace(' ', '') | lower }}_{{ day | lower }}" 
-                                           name="schedule_{{ time_slot|replace(' ', '') | lower }}_{{ day | lower }}"
-                                           value="{{ time_schedule[day].get(time_slot, '') }}">
-                                </td>
-                            {% endfor %}
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            <button type="submit">Save Daily Schedules</button>
-        </form>
+                <!-- Logout Button -->
+                <form action="{{ url_for('logout') }}" method="post" style="display: inline;">
+                    <button type="submit">Logout</button>
+                </form>
+            </div>
 
-        <!-- Footer with some navigation buttons -->
+            <!-- Week of Date and Navigation Buttons -->
+            <div class="header-main">
+                <!-- Display Week of [date] -->
+                <h2>Week of {{ week_start_date.strftime('%B %d, %Y') }}</h2>
+                <!-- Navigation Buttons -->
+                <nav class="navigation-buttons">
+                    <a href="{{ url_for('previous_calendar', calendar_date=calendar_date) }}" class="button">‹ Previous Week</a>
+                    <a href="{{ url_for('next_calendar', calendar_date=calendar_date) }}" class="button">Next Week ›</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content Section -->
+        <main>
+            <!-- Categories and Tasks Form -->
+            <section class="categories-section">
+                <div class="section-header">
+                    <h2>Categories with Tasks</h2>
+                    <!-- Tooltip to explain the section for the user -->
+                    <span class="tooltip" data-tooltip="Create categories and add associated tasks under each one.">?</span>
+                </div>
+                <form action="{{ url_for('update_categories_and_tasks') }}" method="post">
+                    <table class="categories-table">
+                        <thead>
+                            <tr>
+                                <!-- Dynamically generate category input fields -->
+                                {% for category in categories %}
+                                    <th>
+                                        <input type="text" id="category{{ loop.index }}" name="category{{ loop.index }}" value="{{ category.category_name }}">
+                                    </th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Generate input fields for tasks under each category -->
+                            {% for i in range(1, 9) %}
+                                <tr>
+                                    {% for category in categories %}
+                                        <td>
+                                            {% set task = tasks_by_category.get(category.category_id, {}).get(i) %}
+                                            <input type="text" id="action{{ i }}_category{{ loop.index }}" name="action{{ i }}_category{{ loop.index }}" value="{{ task.task_name if task else '' }}">
+                                        </td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <button type="submit">Save Categories and Tasks</button>
+                </form>
+            </section>
+
+            <!-- Assign Tasks to Days Form -->
+            <section class="assign-tasks-section">
+                <div class="section-header">
+                    <h2>Days with Tasks</h2>
+                    <!-- Tooltip to explain the section to the user -->
+                    <span class="tooltip" data-tooltip="Assign your tasks to specific days of the week here.">?</span>
+                </div>
+                <form action="{{ url_for('assign_task_to_day', calendar_date=calendar_date) }}" method="post">
+                    <table class="days-table">
+                        <thead>
+                            <tr>
+                                {% for day in days_of_week %}
+                                    <th>{{ day }}</th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in range(1, 8) %}
+                                <tr>
+                                    {% for day in days_of_week %}
+                                        <td>
+                                            <input type="text" id="{{ day.lower() }}_task{{ i }}" name="{{ day.lower() }}_task{{ i }}" 
+                                                   value="{{ tasks_by_day[day].get(i, '') }}">
+                                        </td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <button type="submit">Assign Tasks to Days</button>
+                </form>
+            </section>
+
+            <!-- Daily Schedules Form -->
+            <section class="daily-schedules-section">
+                <div class="section-header">
+                    <h2>Time Slots with Tasks</h2>
+                    <!-- Tooltip to explain the section to the user -->
+                    <span class="tooltip" data-tooltip="Schedule your tasks into specific time slots for each day.">?</span>
+                </div>
+                <form action="{{ url_for('schedule_task_time_slot') }}" method="post">
+                    <table class="time-schedule">
+                        <thead>
+                            <tr>
+                                <th>Time Slot</th>
+                                <!-- Displaying the days of the week as headers -->
+                                {% for day in days_of_week %}
+                                    <th>{{ day }}</th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Generating the input fields for each time slot -->
+                            {% for time_slot in time_slots %}
+                                <tr>
+                                    <td>{{ time_slot }}</td>
+                                    {% for day in days_of_week %}
+                                        <td>
+                                            <input type="text" id="schedule_{{ time_slot|replace(' ', '') | lower }}_{{ day | lower }}" 
+                                                   name="schedule_{{ time_slot|replace(' ', '') | lower }}_{{ day | lower }}"
+                                                   value="{{ time_schedule[day].get(time_slot, '') }}">
+                                        </td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <button type="submit">Save Daily Schedules</button>
+                </form>
+            </section>
+        </main>
+
+        <!-- Footer Section -->
         <footer class="footer">
-            <!-- Navigation buttons for previous and next actions -->
-            <a href="#" class="button">‹ Previous</a>
-            <a href="#" class="button">Next ›</a>
+            <p>&copy; {{ current_year }} Schedulify</p>
         </footer>
-
-        <!-- Logout Section -->
-        <div>
-            <!-- Try to display the username and provide a logout button -->
-            <h1>Welcome, {{ username }}</h1>
-            <form action="{{ url_for('logout') }}" method="post" style="display: inline;">
-                <button type="submit">Logout</button>
-            </form>
-        </div>
     </div>
+
+    <!-- Little JavaScript for Light/Dark Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check for saved user preference on page load
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            if (currentTheme === 'dark') {
+                document.documentElement.classList.add('dark-theme');
+            }
+        
+            const themeToggle = document.getElementById('theme-toggle');
+        
+            // Making sure the theme toggle button actually shows up..
+            if (themeToggle) {
+                // The initial button text based on the current theme
+                themeToggle.textContent = currentTheme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+        
+                themeToggle.addEventListener('click', function () {
+                    let theme = 'light';
+                    if (document.documentElement.classList.contains('dark-theme')) {
+                        document.documentElement.classList.remove('dark-theme');
+                        theme = 'light';
+                        themeToggle.textContent = 'Switch to Dark Mode';
+                    } else {
+                        document.documentElement.classList.add('dark-theme');
+                        theme = 'dark';
+                        themeToggle.textContent = 'Switch to Light Mode';
+                    }
+                    // Save the users preference to their localStorage
+                    localStorage.setItem('theme', theme);
+                });
+            } else {
+                console.error('Theme toggle button not found');
+            }
+        });
+    </script>
 </body>
 </html>

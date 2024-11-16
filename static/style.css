@@ -1,8 +1,6 @@
 /* 
-   This section resets default margins and paddings to ensure 
-   consistent layout across multiple browsers.
-   It also applies the box-sizing: border-box; rule to include padding 
-   and borders in the elements width and height.
+   Reset default margins and paddings to ensure consistent layout across browsers.
+   Apply box-sizing: border-box to include padding and borders in element's width and height.
 */
 * {
     margin: 0;
@@ -11,18 +9,20 @@
 }
 
 /* 
-   Basic styles for the body of the page:
-   - Subject to change at any point HAHA
+   Basic styles for the body of the page.
+   Updated to use CSS variables for theme support.
 */
 body {
     font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 /* 
-   .container class is used to wrap the main content:
-   - Sets the width of the container to 90% of the screen width.
-   - Auto centers the container with margin: 20px auto;
-   - Provides 20px vertical space at the top and bottom. So edit that number to mess with it!
+   .container class wraps the main content.
+   - Width: 90% of the screen.
+   - Centers the container.
+   - Provides vertical spacing.
 */
 .container {
     width: 90%;
@@ -30,11 +30,11 @@ body {
 }
 
 /* 
-   Styles for all table elements:
-   - width: 100%; stretch the table accross our container.
-   - border-collapse: collapse; merges the borders into one instead of keeping space between them.
-   - table-layout: fixed; makes all columns take up an equal width.
-   - margin-bottom: 20px; adds space below each table to separate them vertically.
+   Styles for all table elements.
+   - Stretch tables across the container.
+   - Collapse borders.
+   - Equal column widths.
+   - Separate tables vertically.
 */
 table {
     width: 100%;
@@ -44,51 +44,51 @@ table {
 }
 
 /* 
-   Styles for table header (th) and table data (td) cells:
-   - Borders are then applied to all cells.
-   - Padding is set to 5px to make it look more like our figma design but subjec to change if needed
-   - Text is centered both horizontally (text-align: center) and vertically (vertical-align: middle).
+   Styles for table header and data cells.
+   - Apply borders using CSS variables.
+   - Center text both horizontally and vertically.
 */
 th, td {
-    border: 1px solid #000;
+    border: 1px solid var(--border-color);
     padding: 5px; 
     text-align: center;
     vertical-align: middle;
 }
 
 /* 
-   Specific styles for the table header cells (thead th):
-   - Black background with white text
-   - Font size is 16px 
-   - Padding of 10px to better utilize our space, can change once again if needed!
+   Specific styles for table header cells.
+   - Use CSS variables for theme colors.
+   - Set font size and padding.
 */
 thead th {
-    background-color: #000;
-    color: white;
+    background-color: var(--table-header-background);
+    color: var(--table-header-text-color);
     font-weight: bold;
     font-size: 16px; 
     padding: 10px; 
 }
 
 /* 
-   Input field styles for the table, aka the user input:
-   - Input fields stretch to fill the table cells (width: 100%).
-   - Transparent background and border-bottom style to create the "lines" they are fake lol
-   - Left-aligned text with a of padding (5px) to get it off the left side 
+   Input field styles within the tables.
+   - Stretch inputs to fill the cells.
+   - Use transparent background and underline style.
+   - Left-align text with padding.
 */
 input[type="text"] {
     width: 100%;
     height: 30px;
     border: none;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid var(--border-color);
     background-color: transparent;
+    color: var(--input-text-color);
     text-align: left;
     padding-left: 5px;
 }
 
 /* 
-   Style applied to input fields when they are focused (clicked):
-   - Removes the default outline and changes the background to a light grey to show you have selected that field. (#f0f0f0).
+   Style for input fields when focused.
+   - Remove default outline.
+   - Change background color to indicate focus.
 */
 input[type="text"]:focus {
     outline: none;
@@ -96,13 +96,13 @@ input[type="text"]:focus {
 }
 
 /* 
-   Specific styles for the editable category headers (within .categories-table):
-   - Black background with white text, bold and centered.
-   - The input fields have fixed height we can change.
+   Styles for editable category headers.
+   - Use theme colors.
+   - Center and bold text.
 */
 .categories-table th input[type="text"] {
-    background-color: #000;
-    color: white;
+    background-color: var(--table-header-background);
+    color: var(--table-header-text-color);
     text-align: center;
     font-weight: bold;
     border: none;
@@ -110,65 +110,34 @@ input[type="text"]:focus {
 }
 
 /* 
-   This is what I found with the arrows but I have been unable to get them to work well, plus probably will be easeier when we add function and arrows at the same time.
-
-.arrows {
-    display: flex;  this is flex box
-    justify-content: space-between;
-    margin: 10px 0;
-}
-
-/* 
-   Arrow button styling:
-   - We can change this once we get them to actually pop up haha
-
-.arrow-button {
-    font-size: 30px;
-    background: none;
-    border: none;
-    color: #000;
-    cursor: pointer;
-}
-
-/* 
-   Saw a hover effect and thought it would be cool? Useless for the function however!
-
-.arrow-button:hover {
-    color: #555;
-}
-
-/* 
-   .schedule-header class for the "Daily Schedules" header section:
-   - Black background with white text
-   - Center-aligned text
-   - Padding of 10px to create space once again
+   Styles for the "Daily Schedules" header section.
+   - Use theme colors.
+   - Center and bold text.
 */
 .schedule-header {
-    background-color: #000;
-    color: white;
+    background-color: var(--table-header-background);
+    color: var(--table-header-text-color);
     text-align: center;
     padding: 10px;
     font-weight: bold;
 }
 
 /* 
-   Table cell height for the time schedule table to try and get a consistent height.
-   .time-schedule td and th makes it apply to both the headers and the cells.
+   Set consistent height for time schedule cells.
 */
 .time-schedule td, .time-schedule th {
     height: 50px;
 }
 
 /* 
-   Table header font size for the time schedule table:
-   - Font size is set to 14px
+   Font size for time schedule headers.
 */
 .time-schedule th {
     font-size: 14px;
 }
 
 /* 
-   This is making all of our tables the same width, its just the space within them that is utilized differently.
+   Ensure all tables have consistent column widths.
 */
 .categories-table th, .categories-table td,
 .days-table th, .days-table td,
@@ -177,22 +146,21 @@ input[type="text"]:focus {
 }
 
 /* 
-   Making the time column smaller makes it look better, but we can change this at any point.
+   Adjust width for the time column in the schedule.
 */
 .time-schedule th:first-child {
     width: 5%; 
 }
 
 /* 
-   The remaining columns get the rest of the width, we can mess with this easily.
+   Adjust width for the day columns in the schedule.
 */
 .time-schedule th:not(:first-child) {
     width: calc(95% / 7);
 }
 
 /* 
-   Ensures that the text in table headers is always uppercase (e.g., "Monday" becomes "MONDAY").
-   Also adding some spaces between the letters because it was tough to read.
+   Make table headers uppercase and improve readability.
 */
 thead th {
     text-transform: uppercase; 
@@ -200,38 +168,36 @@ thead th {
 }
 
 /* 
-   Black border to create better seperation of our tables.
+   Apply border to separate table headers.
 */
 thead th, .days-table th, .categories-table th {
-    border-bottom: 2px solid #000; 
+    border-bottom: 2px solid var(--border-color); 
 }
 
 /* 
-   Making sure the days and time headers have consistent black background with white text.
+   Ensure consistency in day and time headers with theme colors.
 */
 .time-schedule th, .days-table th {
-    background-color: #000;
-    color: white;
+    background-color: var(--table-header-background);
+    color: var(--table-header-text-color);
     padding: 12px 0;
     font-weight: 600;
 }
 
 /* 
-   Adds some space between the different table sections (categories, days, and schedule) 
-   to try and make it more spacious like our figma design
+   Add spacing between different table sections.
 */
 .categories-table, .days-table, .time-schedule {
     margin-bottom: 15px;
 }
 
 /* 
-    This is where I am having the settings for the buttons for previous and next.
+   Styles for links and buttons.
 */
-
 body, html {
     height: 100%;
     margin: 0;
- }
+}
 
 a {
     text-decoration: none;
@@ -239,20 +205,177 @@ a {
     padding: 8px 16px;
 }
 a:hover {
-    background-color: white;
-    color: #031926;
-    border: 2px solid #031926;
+    background-color: var(--button-hover-background);
+    color: var(--button-hover-text-color);
+    border: 2px solid var(--button-hover-border-color);
 }
 .button {
-    background-color: #000;
-    color: white;
-    border: 2px solid #031926;
+    background-color: var(--button-background);
+    color: var(--button-text-color);
+    border: 2px solid var(--border-color);
     border-radius: 5%;
 }
 
+/* 
+   Footer styling using theme variables.
+*/
 .footer {
     text-align: center;
     padding: 20px;
-    color: white;
+    color: var(--text-color);
     margin-bottom: 20px; /* Add space below the footer */
+    border-top: 1px solid var(--border-color);
+}
+
+/* 
+   Additional styles for header and controls.
+*/
+header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header-controls {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.header-controls button {
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: var(--button-background);
+    color: var(--button-text-color);
+    border: none;
+    cursor: pointer;
+}
+
+.header-controls button:hover {
+    background-color: var(--button-hover-background);
+    color: var(--button-hover-text-color);
+}
+
+/* 
+   Tooltip Styles.
+*/
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 5px;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    width: 200px;
+    bottom: 125%; /* Position above the tooltip element */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--tooltip-background);
+    color: var(--tooltip-text-color);
+    text-align: center;
+    padding: 8px;
+    border-radius: 6px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    font-size: 14px;
+    z-index: 1;
+}
+
+.tooltip::before {
+    content: '';
+    position: absolute;
+    bottom: 115%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: var(--tooltip-background) transparent transparent transparent;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    z-index: 1;
+}
+
+.tooltip:hover::after,
+.tooltip:hover::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 
+   Define CSS Variables for Theme Colors.
+*/
+:root {
+    /* Light theme colors */
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --border-color: #000000;
+    --table-header-background: #000000;
+    --table-header-text-color: #ffffff;
+    --button-background: #000000;
+    --button-text-color: #ffffff;
+    --button-hover-background: #ffffff;
+    --button-hover-text-color: #000000;
+    --button-hover-border-color: #000000;
+    --input-text-color: #000000;
+    --tooltip-background: #000000;
+    --tooltip-text-color: #ffffff;
+}
+
+/* Dark Theme */
+.dark-theme {
+    --background-color: #1e1e1e;
+    --text-color: #ffffff;
+    --border-color: #ffffff;
+    --table-header-background: #333333;
+    --table-header-text-color: #ffffff;
+    --button-background: #444444;
+    --button-text-color: #ffffff;
+    --button-hover-background: #ffffff;
+    --button-hover-text-color: #000000;
+    --button-hover-border-color: #ffffff;
+    --input-text-color: #ffffff;
+    --tooltip-background: #888888;
+    --tooltip-text-color: #ffffff;
+}
+
+/* 
+   Transition for smooth theme change.
+*/
+body, body * {
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* 
+   Container for the section header and tooltip.
+*/
+.section-header {
+    display: flex;
+    justify-content: space-between;  /* Space between header and tooltip */
+    align-items: center;  /* Align tooltip vertically with the header */
+    margin-bottom: 10px;  /* Add spacing between header and table */
+    width: 100%;  /* Full width of the container */
+}
+
+/* 
+   Header title within the section header.
+*/
+.section-header h2 {
+    margin-right: auto;  /* Push the header text to the left */
+}
+
+/* 
+   Tooltip styling within the section header.
+*/
+.section-header .tooltip {
+    margin-left: auto;  /* Align tooltip to the right */
+    font-weight: normal;  /* Keep tooltip text normal weight */
 }
