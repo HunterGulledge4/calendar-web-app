@@ -15,26 +15,29 @@ Created by Corey Hudson, Damian Tucker,<br> Hunter Gulledge, Jax Pendergrass and
 Schedulify is a fully web-based calendar app designed to help users, particularly students and individuals with ADHD, manage their weekly tasks and boost productivity. Using our “Productivity Funnel” approach, users categorize tasks (e.g., “School,” “Work,” “Home”), assign them to specific days, and then organize them into an hourly schedule for optimal time management. This step-by-step process helps users achieve both personal and professional balance.
 
 ## Requirements
-Latest version of Python
+Latest version of Python and pip.
 
 ## Installation
-To run the application, clone the repository into your chosen directory using:<br>
-<br>`git clone https://github.com/HunterGulledge4/calendar-web-app.git`<br>
-<br>then access the directory with:<br><br>
+Make sure there is no antivirus or any other type of block/firewall preventing your computer from executing scripts.<br><br>
+This program runs in venv, a virtual environment for Python. A batch file (Windows) and a shell script (MAC/Linux) is provided to run all the setup automatically.<br><br>
+If you are using through Github, follow the instructions below and then proceed to the 'For Windows' or 'For MAC/Linux' sections. If you already have the files, make sure you are in the correct directory and proceed straight to the instructions for your OS. After completeing the instructions, the program will open in your default browser.<br><br>
+### Github
+To run the application, clone the repository into your chosen directory using:<br><br>
+`git clone https://github.com/HunterGulledge4/calendar-web-app.git`<br><br>
+then access the directory with:<br><br>
 `cd calendar-web-app`<br><br>
-
-#### For Windows
-*Make sure that running scripts is enabled.*<br><br>
+Proceed to the instructions for your OS below.<br><br>
+### For Windows
+Access the location of your files in file explorer and run `Schedulify_Windows.bat`. Alternatively:<br><br>
 In powershell, run: <br><br>
-`./run_flask.bat`
-<br><br>or<br><br>
-`run_flask.bat`<br><br>
-in the command prompt.<br><br>
+`./Schedulify_Windows.bat`
+<br><br>or in the command prompt:<br><br>
+`Schedulify_Windows.bat`<br><br>
 
-#### For MAC/Linux
-Run <br><br>`./run_flask.sh` <br><br>or<br><br> `run_flask.sh`<br><br> in the terminal.<br><br>
-
-The program will then open in your default browser.<br><br>
+### For MAC/Linux
+Run `chmod +x run_flask.sh` to make sure user has permission to execute.<br><br>
+Access the location of your files in Finder and run `Schedulify_Mac.bat`. Alternatively:<br><br>
+Run <br><br>`./Schedulify_Mac.sh` <br><br>or<br><br> `Schedulify_Windows.sh`<br><br> in the terminal.<br><br>
 
 ## Features
 
