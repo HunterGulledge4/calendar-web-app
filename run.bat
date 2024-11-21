@@ -2,18 +2,19 @@
 
 python -m venv venv
 
-REM Activate the virtual environment (adjust path as needed)
 call venv\Scripts\activate
 
-REM Install required packages if they aren’t already installed
-pip install boto3 Flask Flask-SQLAlchemy Flask-WTF Flask-Bcrypt Flask-Login werkzeug
+pip install Flask Flask-SQLAlchemy Flask-Migrate werkzeug
 
-move app venv\app
+move app.py venv\app.py
 move static venv\static
 move templates venv\templates
 
 cd venv
-cd app
+
+flask db init
+flask db migrate -m "Initial migration."
+flask db upgrade
 
 start http://127.0.0.1:5000
 

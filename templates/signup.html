@@ -1,17 +1,123 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Signup</title>
-</head>
-<body>
-    <h1>Signup</h1>
-    <form method="POST">
-        <input type="text" name="username" placeholder="Username" required>
-        <input type="password" name="password" placeholder="Password" required>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #191970; /* Midnight Blue */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 75vh;
+      }
+
+      .title {
+        font-family: "Brush Script MT", cursive;
+        font-size: 60px;
+        color: #03e5fe;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.5);
+        text-align: center;
+      }
+
+      .logo {
+        margin-bottom: 20px;
+      }
+
+      .logo img {
+        max-width: 200px;
+        height: auto;
+      }
+
+      .container {
+        background-color: rgb(3, 229, 254);
+        padding: 20px;
+        border-radius: 8px;
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+
+      button {
+        padding: 12px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      p {
+        text-align: center;
+        font-size: 14px;
+      }
+
+      a {
+        color: #ffffff;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="logo">
+      <img
+        src="https://i.ibb.co/Df3sf4b/logo-removebg-preview-removebg-preview-1.png"
+        alt="App Logo"
+      />
+    </div>
+    <div class="title">Schedulify</div>
+    <div class="container">
+      <h1>Signup</h1>
+      <form method="POST">
+        <input type="text" name="username" placeholder="Username" required />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
         <button type="submit">Signup</button>
-
-        <p>Already have an account? <a href="/login">Login here</a></p> 
-
-    </form>
-</body>
+        <p>Already have an account? <a href="/login">Login</a></p>
+      </form>
+      <footer class="footer">
+        <p>&copy; 2024 Schedulify</p>
+      </footer>
+    </div>
+  </body>
 </html>
