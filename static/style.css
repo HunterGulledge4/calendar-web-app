@@ -92,7 +92,7 @@ input[type="text"] {
 */
 input[type="text"]:focus {
     outline: none;
-    background-color: #f0f0f0;
+    background-color: #828282;
 }
 
 /* 
