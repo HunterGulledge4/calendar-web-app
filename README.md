@@ -1,5 +1,5 @@
 <div align="center">
-#Schedulify
+# Schedulify
 
 ![](https://i.ibb.co/Df3sf4b/logo-removebg-preview-removebg-preview-1.png)
 
