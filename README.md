@@ -16,6 +16,7 @@ Schedulify is a fully web-based calendar app designed to help users, particularl
 
 ## Requirements
 Latest version of Python and pip.
+Stable internet connection.
 
 ## Installation
 Make sure there is no antivirus or any other type of block/firewall preventing your computer from executing scripts.<br><br>
