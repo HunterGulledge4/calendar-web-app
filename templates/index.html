@@ -33,6 +33,14 @@
     <div class="container">
       <!-- Header Section -->
       <header>
+        <!-- Display flash messages for save completions and errors -->
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for message in messages %}
+              <p>{{message}}</p>
+              {% endfor %}
+              {% endif %}
+              {% endwith %}
         <!-- Welcome message -->
         <div class="welcome-message">
           <h1>Welcome to your Schedulify, {{ username }}!</h1>
