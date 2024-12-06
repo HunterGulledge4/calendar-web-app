@@ -64,7 +64,7 @@
         <!-- Week of Date and Navigation Buttons -->
         <div class="header-main">
           <!-- Display Week of [date] -->
-          <h2>Week of {{ week_start_date.strftime('%B %d, %Y') }}</h2>
+          <h2 style="margin-bottom: 5px;">Week of {{ week_start_date.strftime('%B %d, %Y') }}</h2>
           <!-- Navigation Buttons -->
           <nav class="navigation-buttons">
             <a
@@ -137,6 +137,7 @@
               </tbody>
             </table>
             <button type="submit">Save Categories and Tasks</button>
+            <br></br>
           </form>
         </section>
 
@@ -181,6 +182,7 @@
               </tbody>
             </table>
             <button type="submit">Assign Tasks to Days</button>
+            <br></br>
           </form>
         </section>
 
@@ -226,13 +228,14 @@
               </tbody>
             </table>
             <button type="submit">Save Daily Schedules</button>
+            <br></br>
           </form>
         </section>
       </main>
 
       <!-- Footer Section -->
       <footer class="footer">
-        <p>&copy; {{ current_year }} Schedulify</p>
+        <p>&copy; {{ calendar_date.strftime('%Y') }} Schedulify</p>
       </footer>
     </div>
 
